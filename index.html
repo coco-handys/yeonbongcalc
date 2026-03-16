@@ -103,10 +103,14 @@
 
     /* Tabs */
     .tabs-bar { background:var(--white); border-bottom:1px solid var(--border); position:sticky; top:0; z-index:40; }
-    .tabs-inner { max-width:840px; margin:0 auto; padding:0 24px; display:flex; gap:4px; }
+    .tabs-inner { max-width:840px; margin:0 auto; padding:0 24px; display:flex; gap:4px; align-items:stretch; }
     .tab { padding:18px 16px 15px; background:none; border:none; border-bottom:3px solid transparent; font-family:inherit; font-size:14px; font-weight:600; color:var(--muted); cursor:pointer; transition:color .15s,border-color .15s; white-space:nowrap; }
     .tab:hover { color:var(--sub); }
     .tab.active { color:var(--text); border-bottom-color:var(--green); }
+    .tab-nav-link { display:flex; align-items:center; gap:6px; margin-left:auto; padding:0 14px; font-size:13px; font-weight:700; color:var(--blue); text-decoration:none; border-bottom:3px solid transparent; white-space:nowrap; transition:color .15s,background .15s; border-radius:6px 6px 0 0; }
+    .tab-nav-link:hover { background:var(--blue-lt); color:#1D4ED8; }
+    .tab-nav-link .tl-arrow { font-size:12px; transition:transform .15s; }
+    .tab-nav-link:hover .tl-arrow { transform:translateX(3px); }
 
     /* Layout */
     .page { max-width:840px; margin:0 auto; padding:32px 24px 64px; }
@@ -230,19 +234,35 @@
     .note-box .nb { font-size:13px; color:var(--sub); line-height:1.8; }
 
     /* SEO footer */
-    footer { background:var(--text); padding:48px 24px 40px; color:rgba(255,255,255,.45); font-size:13px; line-height:1.9; }
+    footer { background:var(--text); padding:52px 24px 40px; color:rgba(255,255,255,.45); font-size:13px; line-height:1.9; }
     .footer-inner { max-width:840px; margin:0 auto; }
-    footer h2 { font-size:15px; font-weight:700; color:rgba(255,255,255,.75); margin-bottom:16px; }
-    footer h3 { font-size:13px; font-weight:700; color:rgba(255,255,255,.6); margin:20px 0 8px; }
-    footer p { margin-bottom:6px; max-width:680px; }
-    .faq-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:20px; }
+    footer h2 { font-size:16px; font-weight:800; color:rgba(255,255,255,.85); margin-bottom:20px; letter-spacing:-.3px; }
+    footer h3 { font-size:12px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:rgba(255,255,255,.35); margin:32px 0 12px; }
+    footer p { margin-bottom:6px; max-width:680px; color:rgba(255,255,255,.5); }
+    .faq-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:8px; }
     @media(max-width:560px){ .faq-grid { grid-template-columns:1fr; } }
-    .faq-item { background:rgba(255,255,255,.05); border-radius:8px; padding:12px 16px; }
-    .faq-item .fq { font-size:12px; color:rgba(255,255,255,.5); margin-bottom:4px; }
-    .faq-item .fa { font-size:14px; font-weight:700; color:rgba(255,255,255,.85); }
-    footer hr { border:none; border-top:1px solid rgba(255,255,255,.08); margin:20px 0; }
+    .faq-item { background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07); border-radius:10px; padding:14px 18px; transition:background .12s; }
+    .faq-item:hover { background:rgba(255,255,255,.07); }
+    .faq-item .fq { font-size:11px; color:rgba(255,255,255,.35); margin-bottom:5px; font-weight:500; }
+    .faq-item .fa { font-size:14px; font-weight:800; color:rgba(255,255,255,.9); letter-spacing:-.2px; }
+    .faq-item .fa-sub { font-size:12px; font-weight:400; color:rgba(255,255,255,.4); margin-top:2px; }
+    .rate-table { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:8px; }
+    @media(max-width:480px){ .rate-table { grid-template-columns:1fr; } }
+    .rate-row { display:flex; align-items:center; justify-content:space-between; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07); border-radius:8px; padding:10px 16px; gap:12px; }
+    .rate-row .rr-name { font-size:13px; color:rgba(255,255,255,.55); }
+    .rate-row .rr-val { font-size:14px; font-weight:800; color:rgba(255,255,255,.9); }
+    .rate-row .rr-up { font-size:10px; font-weight:700; color:#FCD34D; margin-left:4px; }
+    .footer-crosslink { display:flex; align-items:center; gap:14px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); border-radius:12px; padding:16px 20px; text-decoration:none; margin-bottom:8px; transition:background .15s,border-color .15s; }
+    .footer-crosslink:hover { background:rgba(255,255,255,.09); border-color:rgba(255,255,255,.2); }
+    .footer-crosslink .fc-icon { font-size:22px; flex-shrink:0; }
+    .footer-crosslink .fc-body { flex:1; }
+    .footer-crosslink .fc-title { font-size:14px; font-weight:700; color:rgba(255,255,255,.85); }
+    .footer-crosslink .fc-desc { font-size:12px; color:rgba(255,255,255,.4); margin-top:2px; }
+    .footer-crosslink .fc-arrow { font-size:16px; color:rgba(255,255,255,.3); flex-shrink:0; transition:transform .15s; }
+    .footer-crosslink:hover .fc-arrow { transform:translateX(4px); color:rgba(255,255,255,.6); }
+    footer hr { border:none; border-top:1px solid rgba(255,255,255,.08); margin:28px 0 20px; }
     footer a { color:inherit; }
-    .footer-note { font-size:12px; color:rgba(255,255,255,.3); }
+    .footer-note { font-size:12px; color:rgba(255,255,255,.25); }
 
     @keyframes fadeUp { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
     .fade-up { animation:fadeUp .28s ease; }
@@ -272,6 +292,7 @@
   <div class="tabs-inner">
     <button class="tab active" onclick="switchTab('calc',this)">실수령액 계산기</button>
     <button class="tab" onclick="switchTab('compare',this)">연봉 구간 비교표</button>
+    <a class="tab-nav-link" href="resign.html">📋 퇴사 정산 <span class="tl-arrow">→</span></a>
   </div>
 </div>
 
@@ -290,6 +311,16 @@
         고용보험 0.9% 유지
       </div>
     </div>
+
+    <!-- 퇴사정산 유도 배너 -->
+    <a class="crosslink" href="resign.html">
+      <span class="cl-icon">📋</span>
+      <div class="cl-body">
+        <div class="cl-title">퇴사하면 총 얼마 받을 수 있을까?</div>
+        <div class="cl-desc">퇴직금 · 미사용 연차수당 · 마지막 월급 · 실업급여 한 번에 계산</div>
+      </div>
+      <span class="cl-arrow">→</span>
+    </a>
 
     <div class="input-section">
       <div class="section-eyebrow">연봉 정보 입력</div>
@@ -397,16 +428,6 @@
       </div>
     </div>
 
-    <!-- 퇴사정산 유도 배너 -->
-    <a class="crosslink" href="resign.html">
-      <span class="cl-icon">📋</span>
-      <div class="cl-body">
-        <div class="cl-title">퇴사하면 총 얼마 받을 수 있을까?</div>
-        <div class="cl-desc">퇴직금 · 미사용 연차수당 · 마지막 월급 · 실업급여 한 번에 계산</div>
-      </div>
-      <span class="cl-arrow">→</span>
-    </a>
-
   </div>
 </div>
 
@@ -436,21 +457,73 @@
 <!-- ══ SEO Footer ══ -->
 <footer>
   <div class="footer-inner">
-    <h2>2026년 연봉별 실수령액 — 자주 찾는 금액</h2>
+    <h2>2026년 연봉별 실수령액</h2>
     <div class="faq-grid">
-      <div class="faq-item"><div class="fq">연봉 3,000만원 실수령액</div><div class="fa">월 약 226만원 / 연 약 2,712만원</div></div>
-      <div class="faq-item"><div class="fq">연봉 4,000만원 실수령액</div><div class="fa">월 약 285만원 / 연 약 3,420만원</div></div>
-      <div class="faq-item"><div class="fq">연봉 5,000만원 실수령액</div><div class="fa">월 약 354만원 / 연 약 4,248만원</div></div>
-      <div class="faq-item"><div class="fq">연봉 6,000만원 실수령액</div><div class="fa">월 약 418만원 / 연 약 5,016만원</div></div>
-      <div class="faq-item"><div class="fq">연봉 7,000만원 실수령액</div><div class="fa">월 약 479만원 / 연 약 5,748만원</div></div>
-      <div class="faq-item"><div class="fq">연봉 1억원 실수령액</div><div class="fa">월 약 644만원 / 연 약 7,728만원</div></div>
+      <div class="faq-item">
+        <div class="fq">연봉 3,000만원 실수령액</div>
+        <div class="fa">월 약 226만원</div>
+        <div class="fa-sub">연 약 2,712만원 · 실효세율 약 9.6%</div>
+      </div>
+      <div class="faq-item">
+        <div class="fq">연봉 4,000만원 실수령액</div>
+        <div class="fa">월 약 285만원</div>
+        <div class="fa-sub">연 약 3,420만원 · 실효세율 약 14.5%</div>
+      </div>
+      <div class="faq-item">
+        <div class="fq">연봉 5,000만원 실수령액</div>
+        <div class="fa">월 약 354만원</div>
+        <div class="fa-sub">연 약 4,248만원 · 실효세율 약 15.0%</div>
+      </div>
+      <div class="faq-item">
+        <div class="fq">연봉 6,000만원 실수령액</div>
+        <div class="fa">월 약 418만원</div>
+        <div class="fa-sub">연 약 5,016만원 · 실효세율 약 16.4%</div>
+      </div>
+      <div class="faq-item">
+        <div class="fq">연봉 7,000만원 실수령액</div>
+        <div class="fa">월 약 479만원</div>
+        <div class="fa-sub">연 약 5,748만원 · 실효세율 약 17.9%</div>
+      </div>
+      <div class="faq-item">
+        <div class="fq">연봉 1억원 실수령액</div>
+        <div class="fa">월 약 644만원</div>
+        <div class="fa-sub">연 약 7,728만원 · 실효세율 약 22.7%</div>
+      </div>
     </div>
 
     <h3>2026년 4대보험 요율</h3>
-    <p>국민연금 4.75%(근로자 부담, 상한 월 637만원) · 건강보험 3.595% · 장기요양보험 건강보험료의 13.14% · 고용보험 0.9%</p>
+    <div class="rate-table">
+      <div class="rate-row">
+        <span class="rr-name">국민연금</span>
+        <span class="rr-val">4.75%<span class="rr-up">↑</span></span>
+      </div>
+      <div class="rate-row">
+        <span class="rr-name">건강보험</span>
+        <span class="rr-val">3.595%<span class="rr-up">↑</span></span>
+      </div>
+      <div class="rate-row">
+        <span class="rr-name">장기요양보험</span>
+        <span class="rr-val">건강보험료 × 13.14%<span class="rr-up">↑</span></span>
+      </div>
+      <div class="rate-row">
+        <span class="rr-name">고용보험</span>
+        <span class="rr-val">0.9%</span>
+      </div>
+    </div>
+    <p style="margin-top:8px;font-size:12px">국민연금 상한: 월 637만원 · 근로자 부담분 기준 · 2026년 확정</p>
 
     <h3>연봉 실수령액이란?</h3>
-    <p>세전 연봉에서 국민연금·건강보험·장기요양보험·고용보험(4대보험)과 근로소득세·지방소득세를 공제한 후 실제 통장에 입금되는 금액입니다. 부양가족 수, 비과세 수당에 따라 달라질 수 있습니다.</p>
+    <p>세전 연봉에서 4대보험(국민연금·건강보험·장기요양보험·고용보험)과 근로소득세·지방소득세를 공제한 후 실제 통장에 입금되는 금액입니다. 부양가족 수, 비과세 수당에 따라 달라질 수 있습니다.</p>
+
+    <h3>다른 계산기</h3>
+    <a class="footer-crosslink" href="resign.html">
+      <span class="fc-icon">📋</span>
+      <div class="fc-body">
+        <div class="fc-title">퇴사 정산 계산기</div>
+        <div class="fc-desc">퇴직금 · 연차수당 · 마지막 월급 · 실업급여 한 번에 계산</div>
+      </div>
+      <span class="fc-arrow">→</span>
+    </a>
 
     <hr>
     <p class="footer-note">본 계산기는 참고용이며 실제 금액과 차이가 있을 수 있습니다. 정확한 세금 문의는 국세청(126)에 연락하세요.</p>
