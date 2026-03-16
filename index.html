@@ -64,8 +64,8 @@
   }
   </script>
 
-  <!-- Google AdSense 자동 광고 (승인 후 ca-pub-XXXXX 교체 후 주석 해제) -->
-  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6037343600471239" crossorigin="anonymous"></script>
 
   <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
   <style>
@@ -234,6 +234,10 @@
 
     @keyframes fadeUp { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
     .fade-up { animation:fadeUp .28s ease; }
+
+    /* AdSense 광고 영역 */
+    .ad-wrap { max-width:840px; margin:0 auto; padding:12px 24px; text-align:center; }
+    .ad-wrap ins { display:block; }
   </style>
 </head>
 <body>
@@ -252,6 +256,17 @@
     <button class="tab" onclick="switchTab('compare',this)">연봉 구간 비교표</button>
     <button class="tab" onclick="switchTab('sev',this)">퇴직금 계산기</button>
   </div>
+</div>
+
+<!-- 광고 1: 탭바 아래 상단 배너 -->
+<div class="ad-wrap">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-6037343600471239"
+       data-ad-slot="auto"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
 
 <!-- ══ Tab 1: 계산기 ══ -->
@@ -375,6 +390,17 @@
         </div>
       </div>
     </div>
+
+    <!-- 광고 2: 결과 섹션 아래 중간 배너 -->
+    <div style="margin-top:24px">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-6037343600471239"
+           data-ad-slot="auto"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
   </div>
 </div>
 
@@ -448,6 +474,17 @@
       </div>
     </div>
   </div>
+</div>
+
+<!-- 광고 3: 푸터 위 하단 배너 -->
+<div class="ad-wrap" style="background:var(--bg); padding-top:20px; padding-bottom:20px;">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-6037343600471239"
+       data-ad-slot="auto"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
 
 <!-- ══ SEO Footer ══ -->
