@@ -303,18 +303,8 @@
     <button class="tab active" onclick="switchTab('calc',this)">실수령액 계산기</button>
     <button class="tab" onclick="switchTab('compare',this)">연봉 구간 비교표</button>
     <button class="tab" onclick="switchTab('sev',this)">퇴직금 계산기</button>
+    <button class="tab" onclick="switchTab('info',this)">이용 안내</button>
   </div>
-</div>
-
-<!-- 광고 1: 탭바 아래 상단 배너 -->
-<div class="ad-wrap">
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-6037343600471239"
-       data-ad-slot="auto"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
 
 <!-- ══ Tab 1: 계산기 ══ -->
@@ -324,12 +314,7 @@
     <div class="update-banner">
       <span class="ub-icon">📢</span>
       <div class="ub-text">
-        <strong>2026년 4대보험 변경사항</strong> —
-        국민연금 <strong>4.5% → 4.75%</strong> &nbsp;·&nbsp;
-        건강보험 <strong>3.545% → 3.595%</strong> &nbsp;·&nbsp;
-        장기요양보험 건강보험료의 <strong>13.14%</strong> &nbsp;·&nbsp;
-        국민연금 상한 월 <strong>637만원</strong> &nbsp;·&nbsp;
-        고용보험 0.9% 유지
+        <strong>2026년 인상 반영</strong> — 국민연금 <strong>4.75%</strong> · 건강보험 <strong>3.595%</strong> · 장기요양 <strong>13.14%</strong> · 고용보험 0.9%
       </div>
     </div>
 
@@ -439,7 +424,7 @@
       </div>
     </div>
 
-    <!-- 광고 2: 결과 섹션 아래 중간 배너 -->
+    <!-- 광고: 결과 섹션 아래 -->
     <div style="margin-top:24px">
       <ins class="adsbygoogle"
            style="display:block"
@@ -448,34 +433,6 @@
            data-ad-format="auto"
            data-full-width-responsive="true"></ins>
       <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
-
-    <!-- 사이트 소개 & 이용 안내 -->
-    <div class="info-section">
-      <h2>연봉 실수령액 계산기 이용 안내</h2>
-      <p>이 계산기는 2026년 최신 4대보험 요율과 근로소득세 누진세율을 반영하여 세전 연봉에서 각종 공제금을 차감한 <strong>월 실수령액(세후 월급)</strong>을 정확하게 계산합니다. 회원가입 없이 무료로 사용할 수 있으며, 계산 결과는 서버에 저장되지 않습니다.</p>
-
-      <h3>사용 방법</h3>
-      <ol class="step-list">
-        <li>슬라이더를 움직이거나 연봉을 직접 입력란에 숫자로 입력합니다.</li>
-        <li>부양가족 수(본인 포함)를 입력합니다. 부양가족이 많을수록 소득세 공제액이 늘어납니다.</li>
-        <li><strong>계산하기</strong> 버튼을 누르면 국민연금·건강보험·고용보험·소득세 등 항목별 공제액과 월 실수령액이 표시됩니다.</li>
-        <li><strong>연봉 구간 비교표</strong> 탭에서 1,000만원~2억원 구간의 실수령액을 한눈에 비교할 수 있습니다.</li>
-        <li><strong>퇴직금 계산기</strong> 탭에서 근속 연수와 평균 월급을 입력하면 예상 퇴직금(세후)을 계산할 수 있습니다.</li>
-      </ol>
-
-      <h3>2026년 주요 공제 항목</h3>
-      <div class="info-grid">
-        <div class="info-card"><div class="ic-label">국민연금 (근로자 부담)</div><div class="ic-val">4.75% (상한 월 637만원)</div></div>
-        <div class="info-card"><div class="ic-label">건강보험 (근로자 부담)</div><div class="ic-val">3.595%</div></div>
-        <div class="info-card"><div class="ic-label">장기요양보험</div><div class="ic-val">건강보험료의 13.14%</div></div>
-        <div class="info-card"><div class="ic-label">고용보험 (근로자 부담)</div><div class="ic-val">0.9%</div></div>
-        <div class="info-card"><div class="ic-label">근로소득세</div><div class="ic-val">누진세율 6%~45%</div></div>
-        <div class="info-card"><div class="ic-label">지방소득세</div><div class="ic-val">근로소득세의 10%</div></div>
-      </div>
-
-      <h3>계산 주의사항</h3>
-      <p>본 계산기는 일반적인 근로자(월급 근로자)를 기준으로 하며, 비과세 수당(식대, 차량 유지비 등)이나 추가 인적공제 항목은 반영되지 않습니다. 실제 원천징수 금액은 회사 급여 담당 부서 또는 국세청 홈택스에서 확인하시기 바랍니다. 계산 결과는 참고용으로만 활용하세요.</p>
     </div>
   </div>
 </div>
@@ -552,6 +509,41 @@
   </div>
 </div>
 
+<!-- ══ Tab 4: 이용 안내 ══ -->
+<div id="tab-info" class="panel">
+  <div class="page">
+    <div class="info-section" style="margin-top:0">
+      <h2>연봉 실수령액 계산기 이용 안내</h2>
+      <p>2026년 최신 4대보험 요율과 근로소득세 누진세율을 반영하여 세전 연봉에서 각종 공제금을 차감한 <strong>월 실수령액(세후 월급)</strong>을 무료로 계산합니다. 회원가입 불필요, 입력값은 서버에 저장되지 않습니다.</p>
+
+      <h3>사용 방법</h3>
+      <ol class="step-list">
+        <li>슬라이더를 움직이거나 연봉을 직접 입력란에 숫자로 입력합니다.</li>
+        <li>부양가족 수(본인 포함)를 입력합니다. 부양가족이 많을수록 소득세 공제액이 늘어납니다.</li>
+        <li><strong>계산하기</strong> 버튼을 누르면 국민연금·건강보험·고용보험·소득세 등 항목별 공제액과 월 실수령액이 표시됩니다.</li>
+        <li><strong>연봉 구간 비교표</strong> 탭에서 1,000만원~2억원 구간의 실수령액을 한눈에 비교할 수 있습니다.</li>
+        <li><strong>퇴직금 계산기</strong> 탭에서 근속 연수와 평균 월급을 입력하면 예상 퇴직금(세후)을 계산할 수 있습니다.</li>
+      </ol>
+
+      <h3>2026년 주요 공제 항목</h3>
+      <div class="info-grid">
+        <div class="info-card"><div class="ic-label">국민연금 (근로자 부담)</div><div class="ic-val">4.75% (상한 월 637만원)</div></div>
+        <div class="info-card"><div class="ic-label">건강보험 (근로자 부담)</div><div class="ic-val">3.595%</div></div>
+        <div class="info-card"><div class="ic-label">장기요양보험</div><div class="ic-val">건강보험료의 13.14%</div></div>
+        <div class="info-card"><div class="ic-label">고용보험 (근로자 부담)</div><div class="ic-val">0.9%</div></div>
+        <div class="info-card"><div class="ic-label">근로소득세</div><div class="ic-val">누진세율 6%~45%</div></div>
+        <div class="info-card"><div class="ic-label">지방소득세</div><div class="ic-val">근로소득세의 10%</div></div>
+      </div>
+
+      <h3>계산 주의사항</h3>
+      <p>본 계산기는 일반적인 월급 근로자를 기준으로 하며, 비과세 수당(식대·차량 유지비 등)이나 추가 인적공제 항목은 반영되지 않습니다. 실제 원천징수 금액은 회사 급여 담당 부서 또는 국세청 홈택스에서 확인하시기 바랍니다. 계산 결과는 참고용으로만 활용하세요.</p>
+
+      <h3>이 서비스에 대하여</h3>
+      <p>실수령액계산기는 매년 변경되는 4대보험 요율과 소득세법을 반영하여 근로자가 실제 손에 쥐는 금액을 쉽게 계산할 수 있도록 만든 무료 공개 계산기입니다. 광고 수익으로 운영되며, 이용자의 개인정보나 입력값은 일절 수집·저장하지 않습니다.</p>
+    </div>
+  </div>
+</div>
+
 <!-- 광고 3: 푸터 위 하단 배너 -->
 <div class="ad-wrap" style="background:var(--bg); padding-top:20px; padding-bottom:20px;">
   <ins class="adsbygoogle"
@@ -589,9 +581,6 @@
       국민연금공단 (연금 수령액 조회) ·
       고용노동부 (퇴직금·근로기준법)
     </p>
-
-    <h3>이 서비스에 대하여</h3>
-    <p>실수령액계산기는 매년 변경되는 4대보험 요율과 소득세법을 반영하여 근로자가 실제 손에 쥐는 금액을 쉽게 계산할 수 있도록 만든 무료 공개 계산기입니다. 광고 수익으로 운영되며, 이용자의 개인정보나 입력값은 일절 수집·저장하지 않습니다.</p>
 
     <hr>
     <p class="footer-note">본 계산기는 참고용이며 실제 금액과 차이가 있을 수 있습니다. 정확한 세금 문의는 국세청(126)에 연락하세요.</p>
