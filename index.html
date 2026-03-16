@@ -239,9 +239,56 @@
     /* AdSense 광고 영역 */
     .ad-wrap { max-width:840px; margin:0 auto; padding:12px 24px; text-align:center; }
     .ad-wrap ins { display:block; }
+
+    /* 사이트 소개 */
+    .info-section { background:var(--white); border-radius:var(--radius-lg); border:1px solid var(--border); padding:36px; margin-top:20px; }
+    @media(max-width:600px){ .info-section { padding:24px 20px; } }
+    .info-section h2 { font-size:18px; font-weight:800; letter-spacing:-.4px; margin-bottom:16px; }
+    .info-section h3 { font-size:15px; font-weight:700; margin:20px 0 8px; color:var(--sub); }
+    .info-section p { font-size:14px; color:var(--sub); line-height:1.9; margin-bottom:8px; }
+    .info-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:16px 0; }
+    @media(max-width:500px){ .info-grid { grid-template-columns:1fr; } }
+    .info-card { background:var(--bg); border-radius:10px; padding:16px 18px; border:1px solid var(--border); }
+    .info-card .ic-label { font-size:12px; font-weight:600; color:var(--muted); margin-bottom:4px; }
+    .info-card .ic-val { font-size:15px; font-weight:700; color:var(--text); }
+    .step-list { list-style:none; counter-reset:step; margin:12px 0; }
+    .step-list li { counter-increment:step; display:flex; gap:12px; align-items:flex-start; padding:10px 0; border-bottom:1px solid var(--border); font-size:14px; color:var(--sub); line-height:1.7; }
+    .step-list li:last-child { border-bottom:none; }
+    .step-list li::before { content:counter(step); min-width:24px; height:24px; border-radius:50%; background:var(--green); color:#fff; font-size:12px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px; }
+
+    /* 쿠키 배너 */
+    .cookie-banner { position:fixed; bottom:0; left:0; right:0; background:rgba(24,24,27,.97); color:rgba(255,255,255,.85); z-index:9999; padding:16px 24px; }
+    .cookie-inner { max-width:840px; margin:0 auto; display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+    .cookie-inner p { font-size:13px; line-height:1.7; flex:1; min-width:240px; }
+    .cookie-link { background:none; border:none; color:#6EE7B7; font-size:13px; cursor:pointer; text-decoration:underline; font-family:inherit; padding:0; }
+    .cookie-btn { background:var(--green); color:#fff; border:none; border-radius:8px; padding:10px 24px; font-family:inherit; font-size:14px; font-weight:700; cursor:pointer; white-space:nowrap; flex-shrink:0; }
+    .cookie-btn:hover { background:var(--green-dk); }
+
+    /* 개인정보처리방침 모달 */
+    .modal-overlay { position:fixed; inset:0; background:rgba(0,0,0,.5); z-index:10000; display:flex; align-items:center; justify-content:center; padding:20px; }
+    .modal-box { background:var(--white); border-radius:var(--radius-lg); width:100%; max-width:680px; max-height:85vh; display:flex; flex-direction:column; overflow:hidden; }
+    .modal-head { display:flex; align-items:center; justify-content:space-between; padding:20px 28px; border-bottom:1px solid var(--border); flex-shrink:0; }
+    .modal-head h2 { font-size:18px; font-weight:800; }
+    .modal-close { background:none; border:none; font-size:22px; cursor:pointer; color:var(--muted); line-height:1; padding:4px; }
+    .modal-body { overflow-y:auto; padding:28px; font-size:14px; color:var(--sub); line-height:1.9; }
+    .modal-body h3 { font-size:15px; font-weight:700; color:var(--text); margin:20px 0 8px; }
+    .modal-body h3:first-child { margin-top:0; }
+    .modal-body p { margin-bottom:10px; }
+    .modal-body ul { padding-left:20px; margin-bottom:10px; }
+    .modal-body ul li { margin-bottom:4px; }
   </style>
 </head>
 <body>
+
+<!-- 쿠키 동의 배너 -->
+<div id="cookie-banner" class="cookie-banner" style="display:none">
+  <div class="cookie-inner">
+    <p>이 사이트는 맞춤형 광고 제공을 위해 Google AdSense 쿠키를 사용합니다. 계속 이용하시면 쿠키 사용에 동의하는 것으로 간주됩니다.
+      <button class="cookie-link" onclick="openPrivacy()">개인정보처리방침</button> 확인
+    </p>
+    <button class="cookie-btn" onclick="acceptCookie()">확인했습니다</button>
+  </div>
+</div>
 
 <header>
   <div class="header-inner">
@@ -402,6 +449,34 @@
            data-full-width-responsive="true"></ins>
       <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
+
+    <!-- 사이트 소개 & 이용 안내 -->
+    <div class="info-section">
+      <h2>연봉 실수령액 계산기 이용 안내</h2>
+      <p>이 계산기는 2026년 최신 4대보험 요율과 근로소득세 누진세율을 반영하여 세전 연봉에서 각종 공제금을 차감한 <strong>월 실수령액(세후 월급)</strong>을 정확하게 계산합니다. 회원가입 없이 무료로 사용할 수 있으며, 계산 결과는 서버에 저장되지 않습니다.</p>
+
+      <h3>사용 방법</h3>
+      <ol class="step-list">
+        <li>슬라이더를 움직이거나 연봉을 직접 입력란에 숫자로 입력합니다.</li>
+        <li>부양가족 수(본인 포함)를 입력합니다. 부양가족이 많을수록 소득세 공제액이 늘어납니다.</li>
+        <li><strong>계산하기</strong> 버튼을 누르면 국민연금·건강보험·고용보험·소득세 등 항목별 공제액과 월 실수령액이 표시됩니다.</li>
+        <li><strong>연봉 구간 비교표</strong> 탭에서 1,000만원~2억원 구간의 실수령액을 한눈에 비교할 수 있습니다.</li>
+        <li><strong>퇴직금 계산기</strong> 탭에서 근속 연수와 평균 월급을 입력하면 예상 퇴직금(세후)을 계산할 수 있습니다.</li>
+      </ol>
+
+      <h3>2026년 주요 공제 항목</h3>
+      <div class="info-grid">
+        <div class="info-card"><div class="ic-label">국민연금 (근로자 부담)</div><div class="ic-val">4.75% (상한 월 637만원)</div></div>
+        <div class="info-card"><div class="ic-label">건강보험 (근로자 부담)</div><div class="ic-val">3.595%</div></div>
+        <div class="info-card"><div class="ic-label">장기요양보험</div><div class="ic-val">건강보험료의 13.14%</div></div>
+        <div class="info-card"><div class="ic-label">고용보험 (근로자 부담)</div><div class="ic-val">0.9%</div></div>
+        <div class="info-card"><div class="ic-label">근로소득세</div><div class="ic-val">누진세율 6%~45%</div></div>
+        <div class="info-card"><div class="ic-label">지방소득세</div><div class="ic-val">근로소득세의 10%</div></div>
+      </div>
+
+      <h3>계산 주의사항</h3>
+      <p>본 계산기는 일반적인 근로자(월급 근로자)를 기준으로 하며, 비과세 수당(식대, 차량 유지비 등)이나 추가 인적공제 항목은 반영되지 않습니다. 실제 원천징수 금액은 회사 급여 담당 부서 또는 국세청 홈택스에서 확인하시기 바랍니다. 계산 결과는 참고용으로만 활용하세요.</p>
+    </div>
   </div>
 </div>
 
@@ -507,11 +582,62 @@
     <h3>연봉 실수령액이란?</h3>
     <p>세전 연봉에서 국민연금·건강보험·장기요양보험·고용보험(4대보험)과 근로소득세·지방소득세를 공제한 후 실제 통장에 입금되는 금액입니다. 부양가족 수, 비과세 수당에 따라 달라질 수 있습니다.</p>
 
+    <h3>관련 공식 사이트</h3>
+    <p>
+      국세청 홈택스 (세금 신고·조회) ·
+      국민건강보험공단 (건강보험료 조회) ·
+      국민연금공단 (연금 수령액 조회) ·
+      고용노동부 (퇴직금·근로기준법)
+    </p>
+
+    <h3>이 서비스에 대하여</h3>
+    <p>실수령액계산기는 매년 변경되는 4대보험 요율과 소득세법을 반영하여 근로자가 실제 손에 쥐는 금액을 쉽게 계산할 수 있도록 만든 무료 공개 계산기입니다. 광고 수익으로 운영되며, 이용자의 개인정보나 입력값은 일절 수집·저장하지 않습니다.</p>
+
     <hr>
     <p class="footer-note">본 계산기는 참고용이며 실제 금액과 차이가 있을 수 있습니다. 정확한 세금 문의는 국세청(126)에 연락하세요.</p>
-    <p class="footer-note" style="margin-top:6px">© 2026 실수령액계산기 · <a href="#">개인정보처리방침</a></p>
+    <p class="footer-note" style="margin-top:6px">© 2026 실수령액계산기 · <button onclick="openPrivacy()" style="background:none;border:none;color:inherit;font:inherit;cursor:pointer;text-decoration:underline;padding:0">개인정보처리방침</button></p>
   </div>
 </footer>
+
+<!-- 개인정보처리방침 모달 -->
+<div id="privacy-modal" class="modal-overlay" style="display:none" onclick="if(event.target===this)closePrivacy()">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h2>개인정보처리방침</h2>
+      <button class="modal-close" onclick="closePrivacy()">✕</button>
+    </div>
+    <div class="modal-body">
+      <h3>1. 개요</h3>
+      <p>실수령액계산기(이하 "본 사이트")는 이용자의 개인정보를 소중히 여기며, 관련 법령을 준수합니다. 본 방침은 본 사이트가 어떤 정보를 수집하고 어떻게 사용하는지 설명합니다.</p>
+
+      <h3>2. 수집하는 정보</h3>
+      <p>본 사이트는 이용자가 입력하는 연봉, 부양가족 수 등의 계산 정보를 <strong>서버에 저장하거나 전송하지 않습니다.</strong> 모든 계산은 브라우저 내에서만 처리됩니다.</p>
+      <p>다만, 아래와 같은 정보가 자동으로 수집될 수 있습니다.</p>
+      <ul>
+        <li>방문 페이지, 접속 시간, 브라우저 유형 등 서버 로그 정보</li>
+        <li>Google AdSense를 통한 광고 쿠키 (아래 제3항 참조)</li>
+      </ul>
+
+      <h3>3. 쿠키 및 제3자 광고</h3>
+      <p>본 사이트는 Google AdSense를 통해 광고를 게재합니다. Google은 쿠키를 사용하여 이용자의 이전 방문 기록을 기반으로 맞춤형 광고를 표시할 수 있습니다.</p>
+      <ul>
+        <li>광고 쿠키 비활성화: <strong>Google 광고 설정</strong>에서 맞춤형 광고를 끌 수 있습니다.</li>
+        <li>Google의 개인정보 처리 방침은 Google 개인정보처리방침 페이지에서 확인할 수 있습니다.</li>
+      </ul>
+
+      <h3>4. 개인정보의 제3자 제공</h3>
+      <p>본 사이트는 수집된 개인정보를 Google AdSense 서비스 운영 목적 외에는 제3자에게 제공하지 않습니다.</p>
+
+      <h3>5. 개인정보 보호책임자</h3>
+      <p>개인정보 관련 문의사항은 아래 이메일로 연락해 주세요.</p>
+      <p><strong>이메일:</strong> contact@yeonbongcalc.com</p>
+
+      <h3>6. 방침 변경</h3>
+      <p>본 개인정보처리방침은 법령 또는 서비스 변경에 따라 업데이트될 수 있으며, 변경 시 본 페이지에 공지합니다.</p>
+      <p style="color:var(--muted);font-size:13px;margin-top:16px">최종 업데이트: 2026년 3월 16일</p>
+    </div>
+  </div>
+</div>
 
 <script>
 /* ─── 2026년 확정 요율 ─── */
@@ -711,6 +837,21 @@ function switchTab(name, el) {
   if (name === 'compare') buildCompareTable();
 }
 
+/* ─── 쿠키 동의 ─── */
+function acceptCookie() {
+  localStorage.setItem('cookie_ok', '1');
+  document.getElementById('cookie-banner').style.display = 'none';
+}
+function openPrivacy() {
+  document.getElementById('privacy-modal').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+function closePrivacy() {
+  document.getElementById('privacy-modal').style.display = 'none';
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closePrivacy(); });
+
 /* ─── 초기화 ─── */
 document.addEventListener('DOMContentLoaded', () => {
   const sl = document.getElementById('salary-slider');
@@ -725,6 +866,11 @@ document.addEventListener('DOMContentLoaded', () => {
     onSalaryDirect(sv);
   }
   doCalc();
+
+  // 쿠키 동의 배너
+  if (!localStorage.getItem('cookie_ok')) {
+    setTimeout(() => { document.getElementById('cookie-banner').style.display = 'block'; }, 1000);
+  }
 });
 </script>
 </body>
