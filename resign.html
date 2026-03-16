@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>퇴사 정산 계산기 2026 - 퇴직금 연차수당 실업급여 한번에 계산</title>
+  <meta name="description" content="2026년 기준 퇴사 정산 계산기. 퇴직금·미사용 연차수당·마지막 월급 일할계산·실업급여 예상액을 한 번에 계산. 퇴사 전 꼭 확인하세요.">
+  <meta name="keywords" content="퇴사 정산 계산기,퇴직금 계산기,연차수당 계산기,실업급여 계산기,퇴사 총 수령액,일할계산,퇴직금 연차 실업급여,2026 퇴사">
+  <meta property="og:title" content="퇴사 정산 계산기 2026 — 퇴직금·연차·실업급여 한번에">
+  <meta property="og:description" content="퇴사하면 총 얼마 받을 수 있을까? 퇴직금·미사용 연차수당·마지막 월급·실업급여 한 번에 계산.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yeonbongcalc.pages.dev/resign.html">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:image" content="https://yeonbongcalc.pages.dev/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="퇴사 정산 계산기 2026 — 퇴직금·연차·실업급여 한번에">
+  <meta name="twitter:description" content="퇴사하면 총 얼마 받을 수 있을까? 퇴직금·미사용 연차수당·마지막 월급·실업급여 한 번에 계산.">
+  <meta name="twitter:image" content="https://yeonbongcalc.pages.dev/og-image.png">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://yeonbongcalc.pages.dev/resign.html">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"퇴사 정산 계산기 2026","url":"https://yeonbongcalc.pages.dev/resign.html","applicationCategory":"FinanceApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"퇴직금은 얼마나 받나요?","acceptedAnswer":{"@type":"Answer","text":"퇴직금 = 1일 평균임금 × 30일 × (근속일수 ÷ 365). 1년 미만 근무 시 발생하지 않습니다."}},{"@type":"Question","name":"2026년 실업급여 최대는?","acceptedAnswer":{"@type":"Answer","text":"1일 상한액 68,100원. 50세 미만 10년 이상 기준 최대 240일, 약 1,634만원 수급 가능합니다."}},{"@type":"Question","name":"미사용 연차수당 계산법은?","acceptedAnswer":{"@type":"Answer","text":"1일 통상임금(월 기본급 ÷ 209시간 × 8시간) × 미사용 연차일수"}}]}</script>
+  <!-- Google Search Console -->
+  <meta name="google-site-verification" content="HxPJJVnVQrf6XfI75VDClfB6W6Fp4U3qsO5ciVLqdDg">
+
+  <!-- Google AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-6037343600471239">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6037343600471239" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #F7F8FC;
+      --white: #FFFFFF;
+      --text: #18181B;
+      --sub: #52525B;
+      --muted: #A1A1AA;
+      --border: #E4E4E7;
+      --blue: #2563EB;
+      --blue-lt: #EFF6FF;
+      --blue-dk: #1D4ED8;
+      --green: #16A34A;
+      --green-lt: #DCFCE7;
+      --green-dk: #15803D;
+      --red: #DC2626;
+      --red-lt: #FEE2E2;
+      --amber: #D97706;
+      --amber-lt: #FFFBEB;
+      --purple: #7C3AED;
+      --purple-lt: #F5F3FF;
+      --teal: #0891B2;
+      --teal-lt: #ECFEFF;
+      --radius: 14px;
+      --radius-lg: 20px;
+      --shadow: 0 1px 3px rgba(0,0,0,.05), 0 4px 20px rgba(0,0,0,.06);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); font-size: 16px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+
+    /* ── Header ── */
+    header { background: var(--white); border-bottom: 1px solid var(--border); }
+    .hdr { max-width: 1040px; margin: 0 auto; padding: 0 24px; height: 62px; display: flex; align-items: center; gap: 10px; }
+    .logo { font-size: 17px; font-weight: 800; color: var(--text); letter-spacing: -.4px; }
+    .logo em { color: var(--blue); font-style: normal; }
+    .badge { font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 99px; }
+    .badge-blue { color: var(--blue); background: var(--blue-lt); }
+    .badge-red { color: #991B1B; background: var(--red-lt); }
+
+    /* ── Page wrap ── */
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 28px 24px 72px; }
+
+    /* ── Update banner ── */
+    .banner { background: var(--amber-lt); border: 1px solid #FDE68A; border-radius: 12px; padding: 13px 18px; margin-bottom: 24px; font-size: 13px; color: #92400E; line-height: 1.7; display: flex; gap: 10px; align-items: flex-start; }
+
+    /* ── Main two-col layout ── */
+    .main-grid { display: grid; grid-template-columns: 420px 1fr; gap: 24px; align-items: start; }
+    @media (max-width: 860px) { .main-grid { grid-template-columns: 1fr; } }
+
+    /* ── Input panel ── */
+    .input-panel { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px; box-shadow: var(--shadow); }
+    .panel-title { font-size: 15px; font-weight: 800; color: var(--text); margin-bottom: 24px; display: flex; align-items: center; gap: 8px; }
+    .panel-title::before { content: ''; display: block; width: 4px; height: 18px; background: var(--blue); border-radius: 2px; }
+
+    /* 섹션 구분선 */
+    .divider-label { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 24px 0 14px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+
+    /* ── Field ── */
+    .field { margin-bottom: 14px; }
+    .field:last-child { margin-bottom: 0; }
+    .field label { display: flex; justify-content: space-between; align-items: center; font-size: 13px; font-weight: 600; color: var(--sub); margin-bottom: 7px; }
+    .field label .hint { font-size: 11px; font-weight: 400; color: var(--muted); }
+    .input-box { display: flex; align-items: center; border: 1.5px solid var(--border); border-radius: 10px; background: var(--bg); transition: border-color .15s, background .15s; }
+    .input-box:focus-within { border-color: var(--blue); background: var(--white); }
+    .input-box input { flex: 1; border: none; background: transparent; padding: 11px 14px; font-family: inherit; font-size: 15px; font-weight: 700; color: var(--text); outline: none; min-width: 0; }
+    .input-box input[type=date] { font-weight: 500; font-size: 14px; cursor: pointer; }
+    .input-box input::placeholder { color: var(--muted); font-weight: 400; font-size: 13px; }
+    .input-box .unit { padding-right: 14px; font-size: 13px; font-weight: 500; color: var(--muted); flex-shrink: 0; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    select { width: 100%; padding: 11px 14px; background: var(--bg); border: 1.5px solid var(--border); border-radius: 10px; font-family: inherit; font-size: 14px; font-weight: 600; color: var(--text); outline: none; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23A1A1AA' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; cursor: pointer; transition: border-color .15s, background .15s; }
+    select:focus { border-color: var(--blue); background-color: var(--white); }
+    .field-note { font-size: 12px; color: var(--muted); margin-top: 5px; }
+
+    /* ── Calc button ── */
+    .btn-calc { display: block; width: 100%; padding: 15px; background: var(--blue); color: #fff; border: none; border-radius: 10px; font-family: inherit; font-size: 16px; font-weight: 700; cursor: pointer; margin-top: 24px; letter-spacing: -.2px; transition: background .15s, transform .1s, box-shadow .15s; }
+    .btn-calc:hover { background: var(--blue-dk); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(37,99,235,.4); }
+    .btn-calc:active { transform: translateY(0); }
+
+    /* ── 결과 패널 ── */
+    .result-panel { display: flex; flex-direction: column; gap: 16px; }
+
+    /* 빈 상태 */
+    .empty-state { background: var(--white); border: 1.5px dashed var(--border); border-radius: var(--radius-lg); padding: 60px 24px; text-align: center; color: var(--muted); font-size: 14px; }
+    .empty-icon { font-size: 40px; opacity: .3; margin-bottom: 12px; }
+
+    /* 총 수령 히어로 */
+    .hero { background: var(--blue); border-radius: var(--radius-lg); padding: 32px; color: #fff; }
+    .hero-label { font-size: 13px; color: rgba(255,255,255,.65); font-weight: 500; margin-bottom: 8px; }
+    .hero-amount { font-size: 56px; font-weight: 900; letter-spacing: -2.5px; line-height: 1; color: #fff; }
+    .hero-unit { font-size: 22px; font-weight: 600; color: rgba(255,255,255,.7); margin-left: 4px; letter-spacing: 0; vertical-align: baseline; }
+    .hero-sub { font-size: 13px; color: rgba(255,255,255,.6); margin-top: 10px; line-height: 1.6; }
+    .hero-stats { display: flex; gap: 20px; margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.15); flex-wrap: wrap; }
+    .hero-stat .hs-label { font-size: 11px; color: rgba(255,255,255,.55); margin-bottom: 3px; }
+    .hero-stat .hs-val { font-size: 15px; font-weight: 700; color: #fff; }
+
+    /* 항목 4개 그리드 */
+    .items-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 560px) { .items-grid { grid-template-columns: 1fr; } }
+
+    .item-card { border-radius: var(--radius); padding: 18px 20px; }
+    .ic-green  { background: var(--green-lt);  border: 1px solid #BBF7D0; }
+    .ic-amber  { background: var(--amber-lt);  border: 1px solid #FDE68A; }
+    .ic-purple { background: var(--purple-lt); border: 1px solid #DDD6FE; }
+    .ic-teal   { background: var(--teal-lt);   border: 1px solid #A5F3FC; }
+
+    .ic-header { display: flex; align-items: center; gap: 7px; margin-bottom: 10px; }
+    .ic-icon { font-size: 16px; }
+    .ic-name { font-size: 12px; font-weight: 700; }
+    .ic-green  .ic-name { color: #15803D; }
+    .ic-amber  .ic-name { color: #92400E; }
+    .ic-purple .ic-name { color: #5B21B6; }
+    .ic-teal   .ic-name { color: #0E7490; }
+
+    .ic-amount { font-size: 24px; font-weight: 900; letter-spacing: -.8px; margin-bottom: 6px; line-height: 1; }
+    .ic-green  .ic-amount { color: var(--green-dk); }
+    .ic-amber  .ic-amount { color: #B45309; }
+    .ic-purple .ic-amount { color: #6D28D9; }
+    .ic-teal   .ic-amount { color: #0E7490; }
+
+    .ic-note { font-size: 12px; line-height: 1.6; }
+    .ic-green  .ic-note { color: #166534; }
+    .ic-amber  .ic-note { color: #92400E; }
+    .ic-purple .ic-note { color: #5B21B6; }
+    .ic-teal   .ic-note { color: #0E7490; }
+
+    .warn-box { margin-top: 8px; background: var(--red-lt); border: 1px solid #FECACA; border-radius: 8px; padding: 10px 14px; font-size: 12px; color: #991B1B; line-height: 1.6; }
+
+    /* 공제 내역 */
+    .breakdown { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+    .bk-head { padding: 16px 24px; border-bottom: 1px solid var(--border); font-size: 14px; font-weight: 700; color: var(--text); display: flex; justify-content: space-between; align-items: center; }
+    .bk-yr { font-size: 12px; font-weight: 400; color: var(--muted); }
+    .bk-row { display: flex; align-items: center; padding: 14px 24px; border-bottom: 1px solid var(--border); }
+    .bk-row:last-child { border-bottom: none; }
+    .bk-dot { width: 7px; height: 7px; border-radius: 50%; margin-right: 14px; flex-shrink: 0; }
+    .bk-name { font-size: 14px; color: var(--sub); flex: 1; font-weight: 500; }
+    .bk-note { font-size: 12px; color: var(--muted); margin-right: 16px; text-align: right; }
+    .bk-val { font-size: 16px; font-weight: 700; min-width: 120px; text-align: right; color: var(--text); }
+    .bk-row.grand { background: var(--blue-lt); }
+    .bk-row.grand .bk-name { font-weight: 800; color: var(--blue); }
+    .bk-row.grand .bk-val { font-size: 18px; color: var(--blue); }
+    .bk-row.dimmed { opacity: .4; }
+
+    /* ── Footer ── */
+    footer { background: var(--text); padding: 48px 24px; color: rgba(255,255,255,.4); font-size: 13px; line-height: 1.9; }
+    .footer-inner { max-width: 1040px; margin: 0 auto; }
+    footer h2 { font-size: 14px; font-weight: 700; color: rgba(255,255,255,.7); margin-bottom: 14px; }
+    footer h3 { font-size: 13px; font-weight: 700; color: rgba(255,255,255,.55); margin: 16px 0 6px; }
+    footer p { max-width: 680px; margin-bottom: 4px; }
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+    @media(max-width:560px){ .faq-grid { grid-template-columns: 1fr; } }
+    .faq-item { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); border-radius: 10px; padding: 12px 16px; }
+    .fq { font-size: 12px; color: rgba(255,255,255,.35); margin-bottom: 3px; }
+    .fa { font-size: 13px; font-weight: 600; color: rgba(255,255,255,.7); }
+    footer hr { border: none; border-top: 1px solid rgba(255,255,255,.08); margin: 18px 0; }
+    footer a { color: inherit; }
+
+    /* 날짜 셀렉트 */
+    .date-selects { display: grid; grid-template-columns: 2fr 1.5fr 1.5fr; gap: 6px; }
+    .date-selects select { padding: 11px 10px; font-size: 14px; }
+
+    /* 아코디언 */
+    .accordion { display: flex; flex-direction: column; gap: 6px; margin-bottom: 24px; }
+    .ac-item { border: 1px solid rgba(255,255,255,.1); border-radius: 10px; overflow: hidden; }
+    .ac-head { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; background: rgba(255,255,255,.05); border: none; font-family: inherit; font-size: 14px; font-weight: 600; color: rgba(255,255,255,.75); cursor: pointer; text-align: left; gap: 12px; transition: background .08s, color .08s; user-select: none; -webkit-tap-highlight-color: transparent; }
+    .ac-head:hover { background: rgba(255,255,255,.11); color: #fff; }
+    .ac-head:active { background: rgba(255,255,255,.15); }
+    .ac-head.open { background: rgba(255,255,255,.09); color: #fff; }
+    .ac-arrow { font-size: 13px; color: rgba(255,255,255,.4); flex-shrink: 0; transition: transform .2s cubic-bezier(.4,0,.2,1); display: inline-block; line-height: 1; }
+    .ac-head.open .ac-arrow { transform: rotate(180deg); color: rgba(255,255,255,.7); }
+    .ac-body { max-height: 0; overflow: hidden; transition: max-height .22s cubic-bezier(.4,0,.2,1); }
+    .ac-body.open { max-height: 500px; }
+    .ac-body-inner { padding: 16px 20px 20px; }
+    .ac-text { font-size: 13px; color: rgba(255,255,255,.55); line-height: 1.9; }
+    .ac-text strong { color: rgba(255,255,255,.75); font-weight: 600; }
+    .ac-list { list-style: none; display: flex; flex-direction: column; }
+    .ac-list li { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-size: 13px; padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,.06); }
+    .ac-list li:last-child { border-bottom: none; }
+    .ac-q { color: rgba(255,255,255,.45); }
+    .ac-a { font-weight: 600; color: rgba(255,255,255,.8); text-align: right; }
+
+    @keyframes fadeUp { from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)} }
+    .fade-up { animation: fadeUp .25s ease; }
+
+    /* ── 네비게이션 바 ── */
+    .nav-bar { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 40; }
+    .nav-inner { max-width: 1040px; margin: 0 auto; padding: 0 24px; display: flex; gap: 4px; }
+    .nav-link { display: flex; align-items: center; gap: 5px; padding: 16px 14px 13px; font-size: 14px; font-weight: 600; color: var(--muted); text-decoration: none; border-bottom: 3px solid transparent; white-space: nowrap; transition: color .15s, border-color .15s; }
+    .nav-link:hover { color: var(--sub); }
+    .nav-link.active { color: var(--text); border-bottom-color: var(--blue); }
+    .nav-link .ni { font-size: 15px; }
+    @media(max-width:560px){ .nav-link span:not(.ni) { display:none; } }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="hdr">
+    <div class="logo">퇴사 정산 <em>계산기</em></div>
+    <div class="badge badge-blue">2026 기준</div>
+    <div class="badge badge-red">4가지 통합 계산</div>
+  </div>
+</header>
+
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <a class="nav-link" href="index.html"><span class="ni">💰</span> 연봉 실수령액</a>
+    <a class="nav-link active" href="resign.html"><span class="ni">📋</span> 퇴사 정산</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <h1 style="font-size:21px;font-weight:900;letter-spacing:-.4px;margin-bottom:14px;color:var(--text)">
+    퇴사 정산 계산기
+    <span style="font-size:13px;font-weight:500;color:var(--muted);letter-spacing:0;margin-left:4px">퇴직금 · 연차수당 · 마지막 월급 · 실업급여</span>
+  </h1>
+
+  <div class="banner">
+    <span style="font-size:15px;flex-shrink:0;margin-top:1px">📢</span>
+    <div style="font-size:13px;color:#92400E;line-height:1.7">
+      <strong style="font-weight:700">2026년 실업급여 상한액 인상</strong> —
+      1일 상한 <strong style="font-weight:700">68,100원</strong> (6년 만의 인상) &nbsp;·&nbsp;
+      하한 <strong style="font-weight:700">66,048원</strong> &nbsp;·&nbsp;
+      월 최대 수령 <strong style="font-weight:700">204만 3,000원</strong>
+    </div>
+  </div>
+
+  <div class="main-grid">
+
+    <!-- ── 입력 패널 ── -->
+    <div class="input-panel">
+      <div class="panel-title">정보 입력</div>
+
+      <!-- 기본 정보 -->
+      <div class="divider-label">기본 정보</div>
+
+      <div class="field">
+        <label>연봉 (세전)</label>
+        <div class="input-box">
+          <input type="text" id="salary" inputmode="numeric" placeholder="예: 40,000,000"
+            oninput="onNum(this)" onblur="fmtIn(this)" onfocus="unfmtIn(this)">
+          <span class="unit">원</span>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>월 기본급 <span class="hint">상여·수당 제외, 공백 시 연봉÷12</span></label>
+        <div class="input-box">
+          <input type="text" id="basePay" inputmode="numeric" placeholder="공백이면 연봉÷12 자동 적용"
+            oninput="onNum(this)" onblur="fmtIn(this)" onfocus="unfmtIn(this)">
+          <span class="unit">원</span>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="field">
+          <label>입사일</label>
+          <div class="date-selects" id="join-selects"></div>
+        </div>
+        <div class="field">
+          <label>퇴사 예정일</label>
+          <div class="date-selects" id="leave-selects"></div>
+        </div>
+      </div>
+
+      <!-- 연차 · 마지막 월급 -->
+      <div class="divider-label">연차 · 마지막 월급</div>
+
+      <div class="field">
+        <label>미사용 연차 일수</label>
+        <div class="input-box">
+          <input type="number" id="unusedLeave" value="0" min="0" max="25">
+          <span class="unit">일</span>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="field">
+          <label>퇴사 월 총 일수</label>
+          <div class="input-box">
+            <input type="number" id="monthDays" value="30" min="28" max="31">
+            <span class="unit">일</span>
+          </div>
+        </div>
+        <div class="field">
+          <label>퇴사 월 근무 일수</label>
+          <div class="input-box">
+            <input type="number" id="workDays" value="15" min="1" max="31">
+            <span class="unit">일</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 실업급여 -->
+      <div class="divider-label">실업급여 조건</div>
+
+      <div class="field">
+        <label>퇴사 사유</label>
+        <select id="leaveType">
+          <option value="involuntary">비자발적 퇴사 (권고사직·해고·계약만료)</option>
+          <option value="voluntary">자발적 퇴사 (자진퇴사)</option>
+        </select>
+        <div class="field-note">자발적 퇴사는 원칙적으로 실업급여 불가</div>
+      </div>
+
+      <div class="two-col">
+        <div class="field">
+          <label>나이 (퇴사일 기준)</label>
+          <select id="age">
+            <option value="under50">50세 미만</option>
+            <option value="over50">50세 이상·장애인</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>고용보험 가입 기간</label>
+          <select id="insureYears">
+            <option value="under1">1년 미만</option>
+            <option value="1to3">1~3년 미만</option>
+            <option value="3to5">3~5년 미만</option>
+            <option value="5to10">5~10년 미만</option>
+            <option value="over10">10년 이상</option>
+          </select>
+        </div>
+      </div>
+
+      <button class="btn-calc" onclick="calc()">퇴사 정산 계산하기</button>
+    </div>
+
+    <!-- ── 결과 패널 ── -->
+    <div class="result-panel" id="result-panel">
+      <div class="empty-state" id="empty-state">
+        <div class="empty-icon">💼</div>
+        왼쪽에 정보를 입력하고<br>계산하기를 눌러주세요
+      </div>
+
+      <!-- 총 수령 히어로 -->
+      <div class="hero fade-up" id="hero" style="display:none">
+        <div class="hero-label">퇴사 시 총 수령 예상액 (세전)</div>
+        <div>
+          <span class="hero-amount" id="hero-total">—</span>
+          <span class="hero-unit">원</span>
+        </div>
+        <div class="hero-sub" id="hero-sub">—</div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hs-label">근속 기간</div>
+            <div class="hs-val" id="hs-period">—</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hs-label">1일 평균임금</div>
+            <div class="hs-val" id="hs-daily">—</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hs-label">퇴사 사유</div>
+            <div class="hs-val" id="hs-type">—</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4개 항목 카드 -->
+      <div class="items-grid fade-up" id="items-grid" style="display:none">
+        <div class="item-card ic-green">
+          <div class="ic-header"><span class="ic-icon">💰</span><span class="ic-name">퇴직금</span></div>
+          <div class="ic-amount" id="ic-sev">—</div>
+          <div class="ic-note" id="ic-sev-note">—</div>
+        </div>
+        <div class="item-card ic-amber">
+          <div class="ic-header"><span class="ic-icon">📅</span><span class="ic-name">미사용 연차수당</span></div>
+          <div class="ic-amount" id="ic-leave">—</div>
+          <div class="ic-note" id="ic-leave-note">—</div>
+        </div>
+        <div class="item-card ic-purple">
+          <div class="ic-header"><span class="ic-icon">🗓</span><span class="ic-name">마지막 월급 (일할)</span></div>
+          <div class="ic-amount" id="ic-last">—</div>
+          <div class="ic-note" id="ic-last-note">—</div>
+        </div>
+        <div class="item-card ic-teal">
+          <div class="ic-header"><span class="ic-icon">🏦</span><span class="ic-name">실업급여 예상 총액</span></div>
+          <div class="ic-amount" id="ic-unemp">—</div>
+          <div class="ic-note" id="ic-unemp-note">—</div>
+          <div class="warn-box" id="unemp-warn" style="display:none">
+            <strong>자발적 퇴사</strong>는 원칙적으로 수급 불가.<br>임금체불·직장 내 괴롭힘 등 정당한 사유 시 예외 인정 가능.
+          </div>
+        </div>
+      </div>
+
+      <!-- 상세 내역 -->
+      <div class="breakdown fade-up" id="breakdown" style="display:none">
+        <div class="bk-head">
+          항목별 상세 내역
+          <span class="bk-yr">2026년 기준</span>
+        </div>
+        <div class="bk-row">
+          <span class="bk-dot" style="background:#16A34A"></span>
+          <span class="bk-name">퇴직금 (세전)</span>
+          <span class="bk-note" id="bk-sev-note">—</span>
+          <span class="bk-val" id="bk-sev">—</span>
+        </div>
+        <div class="bk-row">
+          <span class="bk-dot" style="background:#D97706"></span>
+          <span class="bk-name">미사용 연차수당</span>
+          <span class="bk-note" id="bk-leave-note">—</span>
+          <span class="bk-val" id="bk-leave">—</span>
+        </div>
+        <div class="bk-row">
+          <span class="bk-dot" style="background:#7C3AED"></span>
+          <span class="bk-name">마지막 월급 (일할)</span>
+          <span class="bk-note" id="bk-last-note">—</span>
+          <span class="bk-val" id="bk-last">—</span>
+        </div>
+        <div class="bk-row" id="bk-unemp-row">
+          <span class="bk-dot" style="background:#0891B2"></span>
+          <span class="bk-name" id="bk-unemp-label">실업급여</span>
+          <span class="bk-note" id="bk-unemp-note">—</span>
+          <span class="bk-val" id="bk-unemp">—</span>
+        </div>
+        <div class="bk-row grand">
+          <span class="bk-dot" style="background:var(--blue)"></span>
+          <span class="bk-name">총 예상 수령액</span>
+          <span class="bk-note">세전 기준</span>
+          <span class="bk-val" id="bk-total">—</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- 연봉계산기 유도 배너 -->
+<div style="max-width:1040px;margin:0 auto;padding:0 24px 28px">
+  <a href="index.html" style="display:flex;align-items:center;gap:16px;background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius-lg);padding:20px 24px;text-decoration:none;transition:border-color .15s,box-shadow .15s;" onmouseover="this.style.borderColor='var(--blue)';this.querySelector('.arr').style.transform='translateX(4px)';this.querySelector('.arr').style.color='var(--blue)'" onmouseout="this.style.borderColor='var(--border)';this.querySelector('.arr').style.transform='';this.querySelector('.arr').style.color='var(--muted)'">
+    <span style="font-size:30px;flex-shrink:0">💰</span>
+    <div style="flex:1">
+      <div style="font-size:15px;font-weight:800;color:var(--text);margin-bottom:3px">연봉 실수령액 계산하기</div>
+      <div style="font-size:13px;color:var(--muted)">세후 월급 · 4대보험 · 소득세 자동 계산 — 2026년 최신 기준</div>
+    </div>
+    <span class="arr" style="font-size:20px;color:var(--muted);transition:transform .15s,color .15s">→</span>
+  </a>
+</div>
+
+<!-- SEO Footer -->
+<footer>
+  <div class="footer-inner">
+    <h2>퇴사 정산 — 자주 묻는 내용 (2026년 기준)</h2>
+
+    <div class="accordion">
+      <div class="ac-item">
+        <button class="ac-head" onclick="toggleAc(this)">
+          <span>연봉별 퇴직금 예상액은?</span>
+          <span class="ac-arrow">﹀</span>
+        </button>
+        <div class="ac-body">
+          <div class="ac-body-inner">
+          <ul class="ac-list">
+            <li><span class="ac-q">연봉 3,000만원 · 3년 근무</span><span class="ac-a">약 763만원 (세전)</span></li>
+            <li><span class="ac-q">연봉 4,000만원 · 5년 근무</span><span class="ac-a">약 1,700만원 (세전)</span></li>
+            <li><span class="ac-q">연봉 5,000만원 · 10년 근무</span><span class="ac-a">약 4,240만원 (세전)</span></li>
+            <li><span class="ac-q">연봉 6,000만원 · 7년 근무</span><span class="ac-a">약 3,560만원 (세전)</span></li>
+          </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="ac-item">
+        <button class="ac-head" onclick="toggleAc(this)">
+          <span>퇴직금이란 무엇인가요?</span>
+          <span class="ac-arrow">﹀</span>
+        </button>
+        <div class="ac-body">
+          <div class="ac-body-inner">
+          <p class="ac-text">1년 이상 근무한 근로자가 퇴사할 때 받는 법정 급여입니다.<br>
+          <strong>퇴직금 = 1일 평균임금 × 30일 × (재직일수 ÷ 365)</strong><br>
+          1일 평균임금은 퇴직 전 3개월 총 임금을 해당 기간 일수로 나눈 금액입니다. 1년 미만 근무 시 퇴직금이 발생하지 않습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ac-item">
+        <button class="ac-head" onclick="toggleAc(this)">
+          <span>미사용 연차수당 계산 방법은?</span>
+          <span class="ac-arrow">﹀</span>
+        </button>
+        <div class="ac-body">
+          <div class="ac-body-inner">
+          <p class="ac-text">퇴사 시 사용하지 못한 연차에 대해 금전으로 보상받는 수당입니다.<br>
+          <strong>1일 통상임금 = 월 기본급 ÷ 209시간 × 8시간</strong><br>
+          <strong>연차수당 = 1일 통상임금 × 미사용 연차일수</strong><br>
+          기본급에는 상여금·수당을 제외한 순수 기본급을 사용해야 합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ac-item">
+        <button class="ac-head" onclick="toggleAc(this)">
+          <span>2026년 실업급여 조건과 금액은?</span>
+          <span class="ac-arrow">﹀</span>
+        </button>
+        <div class="ac-body">
+          <div class="ac-body-inner">
+          <ul class="ac-list">
+            <li><span class="ac-q">수급 조건</span><span class="ac-a">고용보험 180일 이상 · 비자발적 퇴사</span></li>
+            <li><span class="ac-q">1일 상한액</span><span class="ac-a">68,100원 (2026년 인상)</span></li>
+            <li><span class="ac-q">1일 하한액</span><span class="ac-a">66,048원 (최저임금 80%)</span></li>
+            <li><span class="ac-q">최대 수급일수</span><span class="ac-a">50세 이상 · 10년↑ → 270일</span></li>
+            <li><span class="ac-q">최대 총 수령액</span><span class="ac-a">68,100원 × 270일 ≈ 1,838만원</span></li>
+          </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="ac-item">
+        <button class="ac-head" onclick="toggleAc(this)">
+          <span>자발적 퇴사도 실업급여를 받을 수 있나요?</span>
+          <span class="ac-arrow">﹀</span>
+        </button>
+        <div class="ac-body">
+          <div class="ac-body-inner">
+          <p class="ac-text">원칙적으로는 불가하지만, 아래 사유는 예외로 인정됩니다.<br><br>
+          ✔ 임금 체불 (2회 이상 또는 3개월분 이상)<br>
+          ✔ 직장 내 괴롭힘·성희롱 피해<br>
+          ✔ 통근 거리 왕복 3시간 이상 (사업장 이전 등)<br>
+          ✔ 질병·부상으로 계속 근무 불가<br>
+          ✔ 부모·배우자 간호를 위한 퇴사<br><br>
+          해당 사유가 있으면 고용24(work.go.kr)에서 확인하세요.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ac-item">
+        <button class="ac-head" onclick="toggleAc(this)">
+          <span>마지막 월급 일할계산 방법은?</span>
+          <span class="ac-arrow">﹀</span>
+        </button>
+        <div class="ac-body">
+          <div class="ac-body-inner">
+          <p class="ac-text"><strong>마지막 월급 = 월 급여 ÷ 해당 월 총 일수 × 실제 근무일수</strong><br><br>
+          예: 3월 15일 퇴사, 월급 300만원<br>
+          → 3,000,000 ÷ 31 × 15 = 약 1,451,613원<br><br>
+          퇴사일 당일은 근무일수에 포함됩니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr style="border:none;border-top:1px solid rgba(255,255,255,.08);margin:24px 0">
+    <p style="font-size:12px;color:rgba(255,255,255,.25)">본 계산기는 참고용이며 실제 금액과 차이가 있을 수 있습니다. 정확한 문의는 고용노동부(1350) 또는 고용24(work.go.kr)에서 확인하세요.</p>
+    <p style="font-size:12px;color:rgba(255,255,255,.25);margin-top:4px">© 2026 퇴사정산계산기 · <a href="#">개인정보처리방침</a></p>
+  </div>
+</footer>
+
+<script>
+function toggleAc(btn) {
+  const body = btn.nextElementSibling;
+  const isOpen = btn.classList.contains('open');
+  btn.classList.toggle('open', !isOpen);
+  body.classList.toggle('open', !isOpen);
+}
+
+
+function buildDateSelects(wrapperId, defaultYear, defaultMonth, defaultDay) {
+  const wrap = document.getElementById(wrapperId);
+  const now  = new Date();
+  const cy   = now.getFullYear();
+
+  const ysel = document.createElement('select');
+  ysel.id = wrapperId + '-y';
+  ysel.style.cssText = 'width:100%;padding:11px 10px;background:var(--bg);border:1.5px solid var(--border);border-radius:10px;font-family:inherit;font-size:14px;font-weight:600;color:var(--text);outline:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'12\' height=\'8\' viewBox=\'0 0 12 8\'%3E%3Cpath d=\'M1 1l5 5 5-5\' stroke=\'%23A1A1AA\' stroke-width=\'1.5\' fill=\'none\' stroke-linecap=\'round\'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 8px center;cursor:pointer;';
+  for (let y = cy - 30; y <= cy + 2; y++) {
+    const o = document.createElement('option');
+    o.value = y; o.textContent = y + '년';
+    if (y === defaultYear) o.selected = true;
+    ysel.appendChild(o);
+  }
+
+  const msel = document.createElement('select');
+  msel.id = wrapperId + '-m';
+  msel.style.cssText = ysel.style.cssText;
+  for (let m = 1; m <= 12; m++) {
+    const o = document.createElement('option');
+    o.value = m; o.textContent = m + '월';
+    if (m === defaultMonth) o.selected = true;
+    msel.appendChild(o);
+  }
+
+  const dsel = document.createElement('select');
+  dsel.id = wrapperId + '-d';
+  dsel.style.cssText = ysel.style.cssText;
+  function refreshDays() {
+    const y = +ysel.value, mo = +msel.value;
+    const max = new Date(y, mo, 0).getDate();
+    const cur = +dsel.value || defaultDay;
+    dsel.innerHTML = '';
+    for (let d = 1; d <= max; d++) {
+      const o = document.createElement('option');
+      o.value = d; o.textContent = d + '일';
+      if (d === Math.min(cur, max)) o.selected = true;
+      dsel.appendChild(o);
+    }
+  }
+  ysel.addEventListener('change', refreshDays);
+  msel.addEventListener('change', refreshDays);
+  refreshDays();
+
+  wrap.appendChild(ysel);
+  wrap.appendChild(msel);
+  wrap.appendChild(dsel);
+}
+
+function getDateVal(wrapperId) {
+  const y = document.getElementById(wrapperId + '-y')?.value;
+  const m = String(document.getElementById(wrapperId + '-m')?.value).padStart(2,'0');
+  const d = String(document.getElementById(wrapperId + '-d')?.value).padStart(2,'0');
+  return y && m && d ? `${y}-${m}-${d}` : '';
+}
+
+
+const UNEMP = {
+  dailyMax: 68100, dailyMin: 66048,
+  days: {
+    under50: { under1:120, '1to3':150, '3to5':180, '5to10':210, over10:240 },
+    over50:  { under1:120, '1to3':180, '3to5':210, '5to10':240, over10:270 },
+  }
+};
+
+const fmt  = n => Math.round(n).toLocaleString('ko-KR');
+const fmtW = n => fmt(n) + '원';
+const getRaw = el => +(el.value.replace(/,/g,'')) || 0;
+function fmtIn(el)   { const v=getRaw(el); if(v) el.value=v.toLocaleString('ko-KR'); }
+function unfmtIn(el) { const v=getRaw(el); if(v) el.value=v; }
+function onNum(el) {
+  const raw = el.value.replace(/[^0-9]/g,'');
+  const pos = el.selectionStart;
+  el.value = raw ? (+raw).toLocaleString('ko-KR') : '';
+  try { el.setSelectionRange(pos, pos); } catch(e){}
+}
+const s    = (id,v)   => { const el=document.getElementById(id); if(el) el.textContent=v; };
+const show = (id,vis) => { const el=document.getElementById(id); if(el) el.style.display=vis?'':'none'; };
+function dateDiff(d1,d2) { return Math.floor((new Date(d2)-new Date(d1))/(864e5)); }
+
+function animEl(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.style.animation='none';
+  requestAnimationFrame(()=>{ el.style.animation=''; });
+}
+
+function calc() {
+  const salary      = getRaw(document.getElementById('salary'));
+  const joinDate    = getDateVal('join-selects');
+  const leaveDate   = getDateVal('leave-selects');
+  const basePayRaw  = getRaw(document.getElementById('basePay'));
+  const unusedLeave = +document.getElementById('unusedLeave').value || 0;
+  const monthDays   = +document.getElementById('monthDays').value  || 30;
+  const workDays    = +document.getElementById('workDays').value   || 1;
+  const leaveType   = document.getElementById('leaveType').value;
+  const age         = document.getElementById('age').value;
+  const insureYrs   = document.getElementById('insureYears').value;
+
+  if (!salary || salary <= 0)   { alert('연봉을 입력해주세요.'); return; }
+  if (!joinDate || !leaveDate)  { alert('입사일과 퇴사일을 입력해주세요.'); return; }
+  if (new Date(leaveDate) <= new Date(joinDate)) { alert('퇴사일이 입사일보다 늦어야 합니다.'); return; }
+
+  const monthly  = salary / 12;
+  const basePay  = basePayRaw > 0 ? basePayRaw : monthly;
+  const totalDays = dateDiff(joinDate, leaveDate);
+  const years    = totalDays / 365;
+  const yrs      = Math.floor(years);
+  const mos      = Math.floor((years - yrs) * 12);
+
+  /* 1. 퇴직금 */
+  const dailyAvg = (monthly * 3) / 91.25;
+  const severance = totalDays >= 365 ? Math.round(dailyAvg * 30 * years) : 0;
+  const sevNote   = totalDays >= 365
+    ? `1일 평균임금 ${fmtW(Math.round(dailyAvg))} × 30일 × ${yrs}년 ${mos}개월`
+    : '1년 미만 근무 — 퇴직금 미발생';
+
+  /* 2. 연차수당 */
+  const dailyWage      = (basePay / 209) * 8;
+  const leaveAllowance = Math.round(dailyWage * unusedLeave);
+  const leaveNote      = `1일 통상임금 ${fmtW(Math.round(dailyWage))} × ${unusedLeave}일`;
+
+  /* 3. 마지막 월급 */
+  const lastPay  = Math.round(monthly / monthDays * workDays);
+  const lastNote = `월급 ${fmtW(Math.round(monthly))} ÷ ${monthDays}일 × ${workDays}일`;
+
+  /* 4. 실업급여 */
+  const isVol      = leaveType === 'voluntary';
+  const supplyDays = UNEMP.days[age][insureYrs];
+  const dailyUnemp = Math.min(Math.max(Math.round(dailyAvg * 0.6), UNEMP.dailyMin), UNEMP.dailyMax);
+  const unempTotal = isVol ? 0 : dailyUnemp * supplyDays;
+  const unempNote  = isVol
+    ? '자발적 퇴사 — 원칙적 수급 불가'
+    : `1일 ${fmtW(dailyUnemp)} × ${supplyDays}일`;
+
+  const grand = severance + leaveAllowance + lastPay + unempTotal;
+
+  /* ── UI ── */
+  show('empty-state', false);
+  ['hero','items-grid','breakdown'].forEach(id => { show(id, true); animEl(id); });
+
+  // 히어로
+  s('hero-total', fmt(grand));
+  const parts = [];
+  if (severance > 0)      parts.push(`퇴직금 ${fmtW(severance)}`);
+  if (leaveAllowance > 0) parts.push(`연차수당 ${fmtW(leaveAllowance)}`);
+  if (unempTotal > 0)     parts.push(`실업급여 ${fmtW(unempTotal)}`);
+  s('hero-sub', parts.length ? parts.join(' + ') : '퇴직금·실업급여 해당 없음');
+  s('hs-period', `${yrs}년 ${mos}개월 (${totalDays}일)`);
+  s('hs-daily',  fmtW(Math.round(dailyAvg)));
+  s('hs-type',   isVol ? '자발적 퇴사' : '비자발적 퇴사');
+
+  // 카드
+  s('ic-sev',       totalDays >= 365 ? fmtW(severance) : '해당없음');
+  s('ic-sev-note',  sevNote);
+  s('ic-leave',     fmtW(leaveAllowance));
+  s('ic-leave-note',leaveNote);
+  s('ic-last',      fmtW(lastPay));
+  s('ic-last-note', lastNote);
+  s('ic-unemp',     isVol ? '해당없음' : fmtW(unempTotal));
+  s('ic-unemp-note',unempNote);
+  show('unemp-warn', isVol);
+
+  // 브레이크다운
+  s('bk-sev',        fmtW(severance));
+  s('bk-sev-note',   totalDays >= 365 ? `${yrs}년 ${mos}개월` : '1년 미만');
+  s('bk-leave',      fmtW(leaveAllowance));
+  s('bk-leave-note', `${unusedLeave}일`);
+  s('bk-last',       fmtW(lastPay));
+  s('bk-last-note',  `${workDays}/${monthDays}일`);
+  s('bk-unemp-label',isVol ? '실업급여 (수급 불가)' : '실업급여 예상액');
+  s('bk-unemp',      isVol ? '—' : fmtW(unempTotal));
+  s('bk-unemp-note', isVol ? '자발적 퇴사' : `${supplyDays}일`);
+  document.getElementById('bk-unemp-row')?.classList.toggle('dimmed', isVol);
+  s('bk-total', fmtW(grand));
+
+  document.getElementById('result-panel')?.scrollIntoView({ behavior:'smooth', block:'nearest' });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const today = new Date();
+  const past  = new Date(today);
+  past.setFullYear(today.getFullYear() - 3);
+
+  buildDateSelects('join-selects',  past.getFullYear(),  past.getMonth()+1,  past.getDate());
+  buildDateSelects('leave-selects', today.getFullYear(), today.getMonth()+1, today.getDate());
+
+  document.getElementById('salary').value = '40,000,000';
+});
+</script>
+</body>
+</html>
